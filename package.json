@@ -1,0 +1,19 @@
+{
+  "name": "hq-fishbowl",
+  "version": "1.0.0",
+  "description": "A 24/7 Slack huddle selfbot for a live portal to Hack Club HQ using AWS Chime SDK and undocumented APIs for audio/video streaming.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@slack/bolt": "^4.4.0",
+    "amazon-chime-sdk-js": "latest",
+    "axios": "^1.11.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "playwright": "^1.54.2"
+  },
+  "author": "deployor",
+  "license": "MIT"
+}

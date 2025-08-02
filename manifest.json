@@ -1,0 +1,40 @@
+{
+  "display_information": {
+    "name": "Mr Shark",
+    "description": "Bot that listens to your messages in Slack huddles in hq-fishbowl",
+    "background_color": "#000000"
+  },
+  "features": {
+    "bot_user": {
+      "display_name": "Shark",
+      "always_online": true
+    }
+  },
+  "oauth_config": {
+    "scopes": {
+      "bot": [
+        "calls:read",
+        "calls:write",
+        "chat:write",
+        "channels:read",
+        "groups:read",
+        "im:read",
+        "mpim:read",
+        "users:read"
+      ]
+    }
+  },
+  "settings": {
+    "event_subscriptions": {
+      "bot_events": [
+        "app_mention",
+        "message.channels"
+      ]
+    },
+    "interactivity": {
+      "is_enabled": true
+    },
+    "socket_mode_enabled": true,
+    "token_rotation_enabled": false
+  }
+}

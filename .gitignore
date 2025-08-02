@@ -1,0 +1,4 @@
+node_modules
+/amazon-chime-sdk-js
+/amazon-chime-sdk
+.env

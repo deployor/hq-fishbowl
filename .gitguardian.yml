@@ -1,0 +1,12 @@
+version: 2
+
+
+severity_threshold: "high"
+
+secret:
+  ignored_paths:
+    - '**/node_modules/**'
+    - 'dist/'
+    - 'docs/config.json'
+    - '**/*.log'
+    - '.env.example'

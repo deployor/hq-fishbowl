@@ -8,7 +8,7 @@
 
 <div align="center">
   <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/fd6c868a62a77a2ba8864c92b30d00ebee637808_hq_fishbowl__8_.png" width="100%" alt="HQ Fishbowl Banner">
-  <i>Far on the ocean there's a... a 24/7 portal to HQ.</i>
+  <i>Far on the ocean there's a... 24/7 portal to HQ.</i>
 </div>
 
 ---

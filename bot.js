@@ -4,7 +4,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 
-const { launchAndJoin, shutdown, toggleMute, toggleAudioOutput, toggleStream, setStates } = require('./audioManager').default;
+const { launchAndJoin, shutdown, toggleMute, toggleAudioOutput, toggleStream, setStates } = require('./audioManager');
 const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN;
 const SLACK_APP_TOKEN = process.env.SLACK_APP_TOKEN;
 const PORT = process.env.PORT || 3001;
@@ -274,7 +274,7 @@ serverApp.get('/chat', (req, res) => {
 
 async function initStream() {
   try {
-    const { joinHuddle } = require('./huddleUtils').default;
+    const { joinHuddle } = require('./huddleUtils');
     await shutdown();
     currentThreadTs = null;
     const { meeting, attendee, thread_ts } = await joinHuddle(CHANNEL_ID);

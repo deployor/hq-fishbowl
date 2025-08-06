@@ -1,4 +1,4 @@
-import { request } from 'axios';
+const axios = require('axios');
 
 async function joinHuddle(channelId) {
   const form = new FormData();
@@ -16,11 +16,11 @@ async function joinHuddle(channelId) {
     },
     data: form
   };
-  const response = await request(options);
+  const response = await axios(options);
   if (!response.data.ok) {
     throw new Error('Slack API call failed: ' + response.data.error);
   }
   return { meeting: response.data.call.free_willy.meeting, attendee: response.data.call.free_willy.attendee, thread_ts: response.data.huddle.thread_root_ts };
 }
 
-export default { joinHuddle };
+module.exports = { joinHuddle };

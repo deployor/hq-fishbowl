@@ -1,5 +1,5 @@
-import { firefox } from 'playwright';
-import { join } from 'path';
+const { firefox } = require('playwright');
+const { join } = require('path');
 
 let browser;
 let page;
@@ -39,11 +39,11 @@ async function launchAndJoin(meeting, attendee, restartCallback) {
   await page.goto('http://localhost:3001/');
   await new Promise(resolve => setTimeout(resolve, 2000));
   await page.addStyleTag({ url: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' });
-  await page.addScriptTag({ path: join(__dirname, '/amazon-chime-sdk.min.js') });
+  await page.addScriptTag({ path: join(__dirname, 'amazon-chime-sdk.min.js') });
+  await page.waitForFunction(() => typeof window.ChimeSDK !== 'undefined', { timeout: 10000 });
   await page.evaluate(({ m, a }) => {
     window.meeting = m;
     window.attendee = a;
-    window.ChimeSDK = ChimeSDK;
   }, { m: meeting, a: attendee });
   await page.evaluate(async () => {
     const { MeetingSessionConfiguration, DefaultDeviceController, DefaultMeetingSession, ConsoleLogger, LogLevel, AudioProfile } = window.ChimeSDK;
@@ -294,4 +294,4 @@ async function setStates(states) {
   await toggleStream(states.streamActive);
 }
 
-export default { launchAndJoin, stopShare, shutdown, toggleMute, toggleAudioOutput, toggleStream, getStates, setStates };
+module.exports = { launchAndJoin, stopShare, shutdown, toggleMute, toggleAudioOutput, toggleStream, getStates, setStates };
